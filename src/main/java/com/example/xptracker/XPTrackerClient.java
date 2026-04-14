@@ -10,8 +10,6 @@ import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.Style;
 import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvents;
 import org.lwjgl.glfw.GLFW;
@@ -57,7 +55,7 @@ public class XPTrackerClient implements ClientModInitializer {
 		ClientTickEvents.END_CLIENT_TICK.register(this::onClientTick);
 
 		// When joining a world, try to restore saved session or show hint
-		ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
+		ClientPlayConnectionEvents.JOIN.register((_handler, _sender, client) -> {
 			XPSessionTracker tracker = XPSessionTracker.getInstance();
 			tracker.reset();
 
@@ -90,7 +88,7 @@ public class XPTrackerClient implements ClientModInitializer {
 		});
 
 		// When leaving a world, save session if enabled, then reset
-		ClientPlayConnectionEvents.DISCONNECT.register((handler, client) -> {
+		ClientPlayConnectionEvents.DISCONNECT.register((_handler, _client) -> {
 			XPSessionTracker tracker = XPSessionTracker.getInstance();
 			if (tracker.isTracking() && XPTrackerConfig.getInstance().persistSessions) {
 				tracker.saveToDisk();
@@ -148,9 +146,6 @@ public class XPTrackerClient implements ClientModInitializer {
 			boolean gamePaused = mc.isPaused();
 			if (gamePaused && !wasPaused) {
 				tracker.pause();
-			} else if (!gamePaused && wasPaused && !tracker.isPaused()) {
-				// This case shouldn't happen since we pause above,
-				// but guard against it
 			} else if (!gamePaused && wasPaused) {
 				tracker.resume();
 			}

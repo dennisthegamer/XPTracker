@@ -141,10 +141,6 @@ public class XPSessionTracker {
 		return paused;
 	}
 
-	public boolean isInWorld() {
-		return inWorld;
-	}
-
 	public int getTotalXPGained() {
 		return totalXPGained;
 	}
@@ -183,12 +179,6 @@ public class XPSessionTracker {
 		return mc.player.experienceLevel;
 	}
 
-	public int getCurrentTotalXP() {
-		Minecraft mc = Minecraft.getInstance();
-		if (mc.player == null) return 0;
-		return mc.player.totalExperience;
-	}
-
 	public String getFormattedSessionTime() {
 		long totalSeconds = getSessionDurationMs() / 1000;
 		long hours = totalSeconds / 3600;
@@ -222,6 +212,7 @@ public class XPSessionTracker {
 			}
 			data.put("xpBySource", sourceData);
 
+			//noinspection ResultOfMethodCallIgnored
 			SESSION_FILE.getParentFile().mkdirs();
 			try (FileWriter writer = new FileWriter(SESSION_FILE)) {
 				GSON.toJson(data, writer);
@@ -244,8 +235,7 @@ public class XPSessionTracker {
 				totalXPGained = ((Double) data.get("totalXPGained")).intValue();
 			}
 			if (data.containsKey("durationMs")) {
-				long savedDuration = ((Double) data.get("durationMs")).longValue();
-				accumulatedTimeMs = savedDuration;
+				accumulatedTimeMs = ((Double) data.get("durationMs")).longValue();
 			}
 			if (data.containsKey("startLevel")) {
 				startLevel = ((Double) data.get("startLevel")).intValue();
@@ -276,6 +266,7 @@ public class XPSessionTracker {
 
 	public void deleteSavedSession() {
 		if (SESSION_FILE.exists()) {
+			//noinspection ResultOfMethodCallIgnored
 			SESSION_FILE.delete();
 		}
 	}

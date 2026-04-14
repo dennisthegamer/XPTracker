@@ -8,6 +8,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 
+import org.jetbrains.annotations.Nullable;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -18,7 +20,7 @@ public class XPTrackerHudElement implements HudElement {
 	private static final int PADDING = 4;
 
 	@Override
-	public void extractRenderState(GuiGraphicsExtractor graphics, DeltaTracker deltaTracker) {
+	public void extractRenderState(@Nullable GuiGraphicsExtractor graphics, @Nullable DeltaTracker deltaTracker) {
 		XPTrackerConfig config = XPTrackerConfig.getInstance();
 		if (!config.hudEnabled) return;
 
@@ -98,7 +100,7 @@ public class XPTrackerHudElement implements HudElement {
 			int startLevel = tracker.getStartLevel();
 			int currentLevel = tracker.getCurrentLevel();
 			if (startLevel > 0 && currentLevel != startLevel) {
-				lines.add(new HudLine("Level: " + startLevel + " \u2192 " + currentLevel, textColor));
+				lines.add(new HudLine("Level: " + startLevel + " → " + currentLevel, textColor));
 			} else {
 				lines.add(new HudLine("Level: " + currentLevel, textColor));
 			}

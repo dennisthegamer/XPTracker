@@ -97,7 +97,6 @@ public class XPSourceDetector {
 			source = XPSource.FISHING;
 		}
 		if (lastBreedingTime > mostRecent && now - lastBreedingTime < ATTRIBUTION_WINDOW_MS) {
-			mostRecent = lastBreedingTime;
 			source = XPSource.BREEDING;
 		}
 
