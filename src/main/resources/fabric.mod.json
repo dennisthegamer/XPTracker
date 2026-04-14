@@ -1,0 +1,35 @@
+{
+	"schemaVersion": 1,
+	"id": "xptracker",
+	"version": "${version}",
+	"name": "XPTracker",
+	"description": "Tracks XP collection per session with source breakdown, efficiency stats, and a configurable HUD overlay.",
+	"authors": [
+		"DennisTheGamer"
+	],
+	"contact": {},
+	"license": "MIT",
+	"icon": "assets/xptracker/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"com.example.xptracker.XPTrackerClient"
+		],
+		"modmenu": [
+			"com.example.xptracker.config.XPTrackerModMenu"
+		]
+	},
+	"mixins": [
+		"xptracker.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.18.4",
+		"minecraft": ">=26.1",
+		"java": ">=25",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"modmenu": "*",
+		"yet-another-config-lib": "*"
+	}
+}

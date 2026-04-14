@@ -1,0 +1,14 @@
+{
+	"required": true,
+	"package": "com.example.xptracker.mixin",
+	"compatibilityLevel": "JAVA_25",
+	"client": [
+		"AnimalInteractMixin",
+		"FishingRodUseMixin",
+		"GameModeBlockBreakMixin",
+		"PlayerAttackMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
