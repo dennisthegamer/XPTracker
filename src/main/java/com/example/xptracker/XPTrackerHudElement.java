@@ -10,6 +10,8 @@ import net.minecraft.client.gui.GuiGraphicsExtractor;
 
 import org.jetbrains.annotations.Nullable;
 
+import net.minecraft.world.item.ItemStack;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +20,8 @@ public class XPTrackerHudElement implements HudElement {
 
 	private static final int MARGIN = 10;
 	private static final int PADDING = 4;
+	private static final int ICON_SIZE = 16;
+	private static final int ICON_GAP = 1;
 
 	@Override
 	public void extractRenderState(@Nullable GuiGraphicsExtractor graphics, @Nullable DeltaTracker deltaTracker) {
@@ -40,16 +44,23 @@ public class XPTrackerHudElement implements HudElement {
 		if (lines.isEmpty()) return;
 
 		float scale = config.hudScale;
-		int lineHeight = font.lineHeight + 2;
+		int textLineHeight = font.lineHeight + 2;
+		int iconLineHeight = ICON_SIZE + 2;
 
 		// Calculate content dimensions (unscaled)
 		int maxWidth = 0;
 		for (HudLine line : lines) {
 			int w = font.width(line.text);
+			if (line.icon != null) {
+				w += ICON_SIZE + ICON_GAP;
+			}
 			if (w > maxWidth) maxWidth = w;
 		}
 		int contentWidth = maxWidth + PADDING * 2;
-		int contentHeight = lines.size() * lineHeight + PADDING * 2;
+		int contentHeight = PADDING * 2;
+		for (HudLine line : lines) {
+			contentHeight += line.icon != null ? iconLineHeight : textLineHeight;
+		}
 
 		// Calculate scaled dimensions for positioning
 		int scaledWidth = (int) (contentWidth * scale);
@@ -81,9 +92,19 @@ public class XPTrackerHudElement implements HudElement {
 			graphics.fill(x, y, x + contentWidth, y + contentHeight, config.hudBackgroundColor);
 		}
 
+		int currentY = y + PADDING;
 		for (int i = 0; i < lines.size(); i++) {
 			HudLine line = lines.get(i);
-			graphics.text(font, line.text, x + PADDING, y + PADDING + (i * lineHeight), line.color, true);
+			if (line.icon != null) {
+				int iconY = currentY;
+				graphics.item(line.icon, x + PADDING, iconY);
+				int textY = iconY + (ICON_SIZE - font.lineHeight) / 2;
+				graphics.text(font, line.text, x + PADDING + ICON_SIZE + ICON_GAP, textY, line.color, true);
+				currentY += iconLineHeight;
+			} else {
+				graphics.text(font, line.text, x + PADDING, currentY, line.color, true);
+				currentY += textLineHeight;
+			}
 		}
 
 		matrix.popMatrix();
@@ -138,18 +159,22 @@ public class XPTrackerHudElement implements HudElement {
 
 				String text;
 				if (config.showTotalXP && config.showLevelGains) {
-					text = source.getEnglishName() + ": +" + xp + " (" + sourceLevels + " " + levelStr + ")";
+					text = "+" + xp + " (" + sourceLevels + " " + levelStr + ")";
 				} else if (config.showLevelGains) {
-					text = source.getEnglishName() + ": +" + sourceLevels + " " + levelStr;
+					text = "+" + sourceLevels + " " + levelStr;
 				} else {
-					text = source.getEnglishName() + ": +" + xp + " (" + pct + "%)";
+					text = "+" + xp + " (" + pct + "%)";
 				}
-				lines.add(new HudLine(text, source.getColor()));
+				lines.add(new HudLine(text, source.getColor(), source.getIcon()));
 			}
 		}
 
 		return lines;
 	}
 
-	private record HudLine(String text, int color) {}
+	private record HudLine(String text, int color, @Nullable ItemStack icon) {
+		HudLine(String text, int color) {
+			this(text, color, null);
+		}
+	}
 }
