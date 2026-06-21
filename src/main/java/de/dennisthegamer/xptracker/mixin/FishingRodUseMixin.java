@@ -1,6 +1,6 @@
-package com.example.xptracker.mixin;
+package de.dennisthegamer.xptracker.mixin;
 
-import com.example.xptracker.XPSourceDetector;
+import de.dennisthegamer.xptracker.XPSourceDetector;
 import net.minecraft.client.multiplayer.MultiPlayerGameMode;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;

@@ -1,19 +1,15 @@
-package com.example.xptracker;
+package de.dennisthegamer.xptracker;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screens.inventory.AbstractFurnaceScreen;
-import net.minecraft.client.gui.screens.inventory.MerchantScreen;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.inventory.AbstractFurnaceMenu;
+import net.minecraft.world.inventory.MerchantMenu;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.Set;
 
-/**
- * Detects the most likely source of XP gains using a heuristic
- * based on recent player actions and current game state.
- */
 public class XPSourceDetector {
 
 	private static final XPSourceDetector INSTANCE = new XPSourceDetector();
@@ -64,19 +60,15 @@ public class XPSourceDetector {
 		lastBreedingTime = System.currentTimeMillis();
 	}
 
-	/**
-	 * Determines the most likely source of an XP gain based on recent events.
-	 * Priority: Screen-based detection first (furnace/trading), then recent actions.
-	 */
 	public XPSource detectSource() {
 		Minecraft mc = Minecraft.getInstance();
 		long now = System.currentTimeMillis();
 
-		// Screen-based detection (highest confidence)
-		if (mc.screen instanceof AbstractFurnaceScreen) {
+		// Menu-based detection (highest confidence)
+		if (mc.player != null && mc.player.containerMenu instanceof AbstractFurnaceMenu) {
 			return XPSource.SMELTING;
 		}
-		if (mc.screen instanceof MerchantScreen) {
+		if (mc.player != null && mc.player.containerMenu instanceof MerchantMenu) {
 			return XPSource.TRADING;
 		}
 

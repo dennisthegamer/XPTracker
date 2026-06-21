@@ -1,6 +1,6 @@
-package com.example.xptracker;
+package de.dennisthegamer.xptracker;
 
-import com.example.xptracker.config.XPTrackerConfig;
+import de.dennisthegamer.xptracker.config.XPTrackerConfig;
 import com.mojang.blaze3d.platform.InputConstants;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;

@@ -1,6 +1,6 @@
-package com.example.xptracker;
+package de.dennisthegamer.xptracker;
 
-import com.example.xptracker.config.XPTrackerConfig;
+import de.dennisthegamer.xptracker.config.XPTrackerConfig;
 import org.joml.Matrix3x2fStack;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElement;
 import net.minecraft.client.DeltaTracker;

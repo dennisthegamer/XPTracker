@@ -1,4 +1,4 @@
-package com.example.xptracker;
+package de.dennisthegamer.xptracker;
 
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;

@@ -1,4 +1,4 @@
-package com.example.xptracker.config;
+package de.dennisthegamer.xptracker.config;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

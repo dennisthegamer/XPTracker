@@ -1,4 +1,4 @@
-package com.example.xptracker;
+package de.dennisthegamer.xptracker;
 
 public class HudEffects {
 

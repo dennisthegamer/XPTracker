@@ -18,8 +18,8 @@ A Minecraft Fabric mod that tracks XP collection per session with detailed sourc
 
 ## Compatibility
 
-- **Minecraft**: 26.1+
-- **Fabric Loader**: 0.18.4+
+- **Minecraft**: 26.2+
+- **Fabric Loader**: 0.19.3+
 - **Fabric API**: Required
 - **Java**: 25+
 - **ModMenu**: Optional (for config screen)
