@@ -27,7 +27,7 @@ A Minecraft Fabric mod that tracks XP collection per session with detailed sourc
 
 ## Download
 
-Download the latest release from [Modrinth](https://modrinth.com/mod/xptracker) or [GitHub Releases](https://github.com/DennisTheGamer/xptracker/releases).
+Download the latest release from [Modrinth](https://modrinth.com/mod/xptracker) or [GitHub Releases](https://github.com/DennisTheGamer/XPTracker/releases).
 
 ## Installation
 
@@ -54,8 +54,8 @@ Config file is saved at `config/xptracker.json`.
 ## Building from Source
 
 ```bash
-git clone https://github.com/DennisTheGamer/xptracker.git
-cd xptracker
+git clone https://github.com/DennisTheGamer/XPTracker.git
+cd XPTracker
 ./gradlew build
 ```
 
@@ -67,10 +67,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Credits
 
-- **Author**: DennisTheGamer
+- **Author**: Dennis_thegamer
 - **Built with**: Fabric, Fabric API, YACL
 
 ## Support
 
-- Report bugs on [GitHub Issues](https://github.com/DennisTheGamer/xptracker/issues)
+- Report bugs on [GitHub Issues](https://github.com/DennisTheGamer/XPTracker/issues)
 - Visit the [Modrinth page](https://modrinth.com/mod/xptracker) for more information
