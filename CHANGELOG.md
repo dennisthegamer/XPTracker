@@ -5,6 +5,16 @@ All notable changes to XPTracker will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-07-14
+
+### Changed
+- Unified the mod version across all supported Minecraft version branches (26.1 and 26.2) so every build carries the same release number
+- Standardized release jar naming to `xptracker-fabric-<version>+mc<range>` (e.g. `xptracker-fabric-1.1.0+mc26.1-26.1.2.jar`)
+- Corrected author and contact metadata (Modrinth and GitHub links)
+
+### Added
+- Modrinth project description (`MODRINTH.md`) at the repository root
+
 ## [1.0.0] - 2026-04-14
 
 ### Added
