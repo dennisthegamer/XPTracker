@@ -1,4 +1,4 @@
-package com.example.xptracker.config;
+package de.dennisthegamer.xptracker.config;
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;

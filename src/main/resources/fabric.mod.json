@@ -16,10 +16,10 @@
 	"environment": "client",
 	"entrypoints": {
 		"client": [
-			"com.example.xptracker.XPTrackerClient"
+			"de.dennisthegamer.xptracker.XPTrackerClient"
 		],
 		"modmenu": [
-			"com.example.xptracker.config.XPTrackerModMenu"
+			"de.dennisthegamer.xptracker.config.XPTrackerModMenu"
 		]
 	},
 	"mixins": [

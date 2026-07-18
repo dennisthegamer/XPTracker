@@ -1,4 +1,4 @@
-package com.example.xptracker;
+package de.dennisthegamer.xptracker;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.inventory.AbstractFurnaceScreen;
