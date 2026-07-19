@@ -5,6 +5,14 @@ All notable changes to XPTracker will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.1] - 2026-07-19
+
+### Changed
+- Internal: the Java package was renamed from `com.example.xptracker` to
+  `de.dennisthegamer.xptracker`, so both 26.x branches share one package layout.
+  No user-visible change; the version is raised so the existing 1.1.0 release
+  keeps the jars it was published with.
+
 ## [1.1.0] - 2026-07-14
 
 ### Changed
