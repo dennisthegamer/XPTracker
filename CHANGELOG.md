@@ -1,4 +1,4 @@
-## [Unreleased]
+## [1.1.2] - 2026-07-21
 
 ### Fixed
 - The optional YetAnotherConfigLib suggestion referenced the mod id
