@@ -1,3 +1,11 @@
+## [Unreleased]
+
+### Fixed
+- The optional YetAnotherConfigLib suggestion referenced the mod id
+  `yet-another-config-lib`, which does not exist — the real id is
+  `yet_another_config_lib_v3` and the library declares no aliases, so the
+  suggestion never matched. Loading and the config screen were unaffected.
+
 ## [1.1.1] - 2026-07-19
 
 ### Changed
