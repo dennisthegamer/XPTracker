@@ -12,7 +12,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvents;
-import org.lwjgl.glfw.GLFW;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -39,15 +38,15 @@ public class XPTrackerClient implements ClientModInitializer {
 		// Register keybinding
 		toggleTrackingKey = KeyMappingHelper.registerKeyMapping(new KeyMapping(
 				"key.xptracker.toggleTracking",
-				InputConstants.Type.KEYSYM,
-				GLFW.GLFW_KEY_J,
+				InputConstants.Type.KEYBOARD,
+				InputConstants.KEY_J,
 				KEYBIND_CATEGORY
 		));
 
 		resetTrackingKey = KeyMappingHelper.registerKeyMapping(new KeyMapping(
 				"key.xptracker.resetTracking",
-				InputConstants.Type.KEYSYM,
-				GLFW.GLFW_KEY_K,
+				InputConstants.Type.KEYBOARD,
+				InputConstants.KEY_K,
 				KEYBIND_CATEGORY
 		));
 
