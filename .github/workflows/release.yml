@@ -6,7 +6,7 @@ name: Release
 on:
   push:
     branches:
-      - mc26.2
+      - mc26.3
 
 jobs:
   build:
@@ -136,7 +136,7 @@ jobs:
 
           **Installation:** Download the main JAR file and place it in your mods folder along with Fabric API.
 
-          For detailed installation instructions, see the [README](https://github.com/dennisthegamer/XPTracker/blob/mc26.2/docs/README.md).
+          For detailed installation instructions, see the [README](https://github.com/dennisthegamer/XPTracker/blob/mc26.3/docs/README.md).
           RELEASE_BODY
 
       - name: Create Release
